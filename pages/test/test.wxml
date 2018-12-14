@@ -1,0 +1,25 @@
+<!--pages/test/test.wxml-->
+<import src='../radio-group/radio-group-template.wxml' />
+
+<view class='test-container'>
+  <view class="questions">
+    <view wx:for="{{localData.questions}}" class="question">
+      <view class='question-title'>
+        <text class="title-index">1.</text>
+        <text class="title">{{item.question}}</text>
+      </view>
+      <template is="radioGroupTemplate" data="{{...item}}" />
+    </view>
+  </view>
+  <view class="test-bottom">
+    <view class='question-index'>
+      <text class="curIndex">{{curIndex}}</text>
+      <text class="separate">/</text>
+      <text class="totalIndex">{{localData.totalQuestions}}</text>
+    </view>
+    <view class='buttons'>
+      <button bindtap='onPre'>上一题</button>
+      <button bindtap='onNext'>下一题</button>
+    </view>
+  </view>
+</view>

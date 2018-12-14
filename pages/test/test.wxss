@@ -1,0 +1,63 @@
+/* pages/test/test.wxss */
+@import '../radio-group/radio-group-template.wxss';
+
+.test-container {
+  position: relative;
+  /* border: 2rpx solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40rpx 80rpx; 
+  background-color: pink;
+}
+.questions {
+  display: flex;
+  white-space: nowrap;
+}
+.question {
+  display: none;
+  flex-direction: column;
+  width: 700rpx;
+}
+.title-index {
+  margin-right: 0.2rem;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+.test-bottom {
+  /* position: absolute;
+  bottom: -200rpx; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-top: 230rpx;
+  padding: 0 20rpx;
+}
+.question-index {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60rpx;
+}
+.separate {
+  float:left;
+  margin: 0 0.3rem;
+}
+.curIndex {
+  width: 3rem;
+  text-align: right;
+}
+.totalIndex {
+  width: 3rem;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.buttons button {
+  font-size: 36rpx;
+  padding: 0 2rem;
+  line-height: 2;
+  margin: 0;
+}

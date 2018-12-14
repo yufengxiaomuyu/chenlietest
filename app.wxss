@@ -1,0 +1,4 @@
+/**app.wxss**/
+button {
+  background-color: #F6D700;
+}

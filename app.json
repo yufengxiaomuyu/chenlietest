@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/test/test",
+    "pages/index/index",
+    "pages/h5/h5"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F3F3F3",
+    "navigationBarTitleText": "陈列测评",
+    "navigationBarTextStyle": "black"
+  }
+}

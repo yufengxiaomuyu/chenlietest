@@ -1,0 +1,8 @@
+<template name="radioGroupTemplate">
+  <radio-group class="options">
+    <label class='radio' wx:for="{{options}}">
+      <view class="circle circle-checked"></view>
+      <radio>{{item}}</radio>
+    </label>
+  </radio-group>
+</template>

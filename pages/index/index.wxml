@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<view class='index-container'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio">
+      <radio value="" checked="checked">初级陈列师</radio>
+    </label>
+    <label class="radio">
+      <radio value="">高级陈列师</radio>
+    </label>
+  </radio-group>
+  <button class='index-button' bindtap="startTest">开始测评</button>
+  <button class='index-button' bindtap="captureScreen">点击截图</button>
+</view>
