@@ -1,0 +1,10 @@
+<!--pages/checkbox/checkbox.wxml-->
+<template name="checkboxTemplate">
+  <view class="checkbox-contianer">
+    <label class="checkbox {{img ? 'normal' : 'heighter'}}">
+      <!-- <view class="circle "></view> -->
+      <checkbox class="wx-checkbox" value="{{index}}">{{content}}</checkbox>
+      <span class="checkbox-input"></span>
+    </label>
+  </view>
+</template>

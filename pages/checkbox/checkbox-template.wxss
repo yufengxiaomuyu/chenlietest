@@ -1,0 +1,36 @@
+/* pages/checkbox/checkbox.wxss */
+.checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  padding: 20rpx 0;
+  line-height: 1.4;
+}
+.checkbox.heighter {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+checkbox {
+  flex: 1;
+  font-size: 34rpx;
+}
+checkbox .wx-checkbox-input {
+  display: none;
+}
+.checkbox-input{
+  /* 需要的默认样式 */
+  display: inline-flex;
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+  border: 8rpx solid #ffd900;
+  /* border-radius: 10rpx;  */
+  border-radius: 4rpx; 
+  margin-top: 14rpx;
+  margin-right: 52rpx;
+  background-color: transparent;
+}
+.wx-checkbox[checked] + .checkbox-input{
+  /* 选中的样式 */
+  background-color: #ffd900;
+}

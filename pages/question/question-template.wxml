@@ -1,0 +1,28 @@
+<import src='../radio/radio-template.wxml' />
+<import src='../checkbox/checkbox-template.wxml' />
+
+<template name="questionTemplate">
+  <view class="question" hidden="{{!(index === curIndex)}}">
+    <view class="question-title {{img ? 'normal' : 'heighter'}}">
+      <text class="title-index">{{index}}.</text>
+      <text class="title">{{content}}</text>
+    </view>
+    <view class="question-img" wx:if="{{!(img === '')}}">
+      <image src="{{img}}" mode='scaleToFill'></image>
+    </view>
+    <radio-group name="{{id}}" class="options" bindchange="radioChange" wx:if="{{type === 1}}">
+      <view class="radio-group-container">
+        <block wx:for="{{optionList}}">
+          <template is="radioTemplate" data="{{...item,index: index+1,img: (img === '') ? false : true}}" />
+        </block>
+      </view>
+    </radio-group>
+    <checkbox-group name="{{id}}" class="options" bindchange="checkboxChange" wx:else>
+      <view class="checkbox-group-container">
+        <block wx:for="{{optionList}}">
+          <template is="checkboxTemplate" data="{{...item,index: index+1,img: (img === '') ? false : true}}" />
+        </block>
+      </view>
+    </checkbox-group>
+  </view>
+</template>

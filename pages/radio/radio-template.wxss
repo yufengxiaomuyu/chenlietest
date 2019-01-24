@@ -1,0 +1,54 @@
+.radio {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  padding: 20rpx 0;
+  line-height: 1.4;
+}
+.radio.heighter {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+radio {
+  flex: 1;
+  font-size: 34rpx;
+}
+radio .wx-radio-input {
+  display: none;
+}
+.radio-input{
+  /* 需要的默认样式 */
+  display: inline-flex;
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+  border: 8rpx solid #ffd900;
+  border-radius: 50%; /* 圆角 */
+  margin-top: 14rpx;
+  margin-right: 52rpx;
+  background-color: transparent;
+}
+.wx-radio[checked] + .radio-input{
+  /* 选中的样式 */
+  background-color: #ffd900;
+}
+/* radio .wx-radio-input {
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+  border: 8rpx solid #ffd900;
+  border-radius: 50%;
+  margin-right: 40rpx;
+  background-color: transparent;
+} */
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+/* radio .wx-radio-input.wx-radio-input-checked {
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+} */
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+/* radio .wx-radio-input.wx-radio-input-checked::before {
+  display: none;
+} */

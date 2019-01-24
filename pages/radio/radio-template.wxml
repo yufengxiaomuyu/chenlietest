@@ -1,0 +1,9 @@
+<template name="radioTemplate">
+  <view class="radio-contianer">
+    <label class="radio {{img ? 'normal' : 'heighter'}}">
+      <!-- <view class="circle "></view> -->
+      <radio class="wx-radio" value="{{index}}" data-title="test">{{content}}</radio>
+      <span class="radio-input"></span>
+    </label>
+  </view>
+</template>

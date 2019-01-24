@@ -1,25 +1,26 @@
 <!--pages/test/test.wxml-->
-<import src='../radio-group/radio-group-template.wxml' />
+<import src="../question/question-template.wxml" />
 
-<view class='test-container'>
-  <view class="questions">
-    <view wx:for="{{localData.questions}}" class="question">
-      <view class='question-title'>
-        <text class="title-index">1.</text>
-        <text class="title">{{item.question}}</text>
+<view class="test-container">
+  <form bindsubmit="testSubmit">
+    <block wx:for="{{questions}}">
+      <template is="questionTemplate" data="{{index:index+1,...item,curIndex}}" />
+    </block>
+    <view class="test-bottom">
+      <view class="question-index">
+        <text class="curIndex">{{curIndex}}</text>
+        <text class="separate">/</text>
+        <text class="totalIndex">{{totalQuestions}}</text>
       </view>
-      <template is="radioGroupTemplate" data="{{...item}}" />
+      <view class="btn-area">
+        <button wx:if="{{curIndex>1}}" bindtap="onPre" class="btn-pre">上一题</button>
+        <block wx:if="{{curIndex<totalQuestions}}">
+          <button wx:if="{{curIndex<totalQuestions}}" bindtap="onNext" class="btn-next {{(checkedIndex<curIndex)?'unchecked':''}}">下一题</button>
+        </block>
+        <block wx:else>
+          <button form-type="submit" class="btn-submit {{(checkedIndex<curIndex) ? 'unchecked' : ''}}">提交</button>
+        </block>
+      </view>
     </view>
-  </view>
-  <view class="test-bottom">
-    <view class='question-index'>
-      <text class="curIndex">{{curIndex}}</text>
-      <text class="separate">/</text>
-      <text class="totalIndex">{{localData.totalQuestions}}</text>
-    </view>
-    <view class='buttons'>
-      <button bindtap='onPre'>上一题</button>
-      <button bindtap='onNext'>下一题</button>
-    </view>
-  </view>
+  </form>
 </view>

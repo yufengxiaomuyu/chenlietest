@@ -1,13 +1,29 @@
 <!--pages/index/index.wxml-->
+<import src="../radio/radio-template" />
 <view class='index-container'>
-  <radio-group class="radio-group" bindchange="radioChange">
-    <label class="radio">
-      <radio value="" checked="checked">初级陈列师</radio>
-    </label>
-    <label class="radio">
-      <radio value="">高级陈列师</radio>
-    </label>
+<text class="levle-title">陈列师等级</text>
+  <radio-group class="options" bindchange="radioChange">
+    <view class="radio-group-container">
+      <block wx:for="{{testLevel}}">
+        <template is="radioTemplate" data="{{...item,index: item.id,content: item.name}}" />
+      </block>
+    </view>
   </radio-group>
-  <button class='index-button' bindtap="startTest">开始测评</button>
-  <button class='index-button' bindtap="captureScreen">点击截图</button>
+  <block wx:if="{{!checked}}">
+    <view class="test-button unchecked return">
+      开始测评
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{!warrant}}">
+      <button class="test-button checked" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+        开始测评
+      </button>
+    </block>
+    <block wx:else>
+      <view class="test-button checked" bindtap="onTest">
+        开始测评
+      </view>
+    </block>
+  </block>
 </view>
