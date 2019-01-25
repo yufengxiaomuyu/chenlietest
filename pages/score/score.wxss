@@ -1,0 +1,33 @@
+/* pages/score/score.wxss */
+.score-contianer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score-num {
+  font-family: AdobeHeitiStd-Regular;
+	font-size: 170rpx;
+  letter-spacing: -4rpx
+}
+.ranking {
+  display: flex;
+  justify-content: center;
+}
+.btn-report {
+  margin-top: 260rpx;
+  width: 520rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+  background-color: #F6D700;
+  font-size: 40rpx;
+  border-radius: 38rpx;
+  /* border: none; */
+  /* outline: none; */
+}

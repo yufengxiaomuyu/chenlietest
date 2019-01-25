@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/circle/circle",
+    "pages/score/score",
     "pages/index/index",
     "pages/test/test",
     "pages/result/result"
