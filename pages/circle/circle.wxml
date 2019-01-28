@@ -1,11 +1,14 @@
 <!--pages/circle/circle.wxml-->
-<view class="container">
-  <view class='progress_box'>
-    <canvas class="progress_bg" canvas-id="canvasProgressbg" />
-    <canvas class="progress_canvas" canvas-id="canvasProgress" />
-    <view class="progress_text">
-      <view class="progress_dot"></view>
-      <text class='progress_info'> {{progress_txt}}</text>
-    </view>
-  </view>
+<!-- <view class="circle-container"> -->
+<view class='progress_box'>
+  <canvas class="progress_bg" canvas-id="canvasProgressbg" />
+  <canvas class="progress_canvas" canvas-id="canvasProgress" />
 </view>
+<circle id='circle1' bg='circle_bg1' draw='circle_draw1' bind:runEvent="_runEvent">
+  <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+  <view class="circle_info" bindtap="changeTime">
+    <view class="circle_dot"></view>
+    <text class='circle_txt'> {{txt}}  </text>
+  </view>
+</circle>
+<!-- </view> -->

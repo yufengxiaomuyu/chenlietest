@@ -1,25 +1,19 @@
 <!--pages/score/score.wxml-->
 <view class="score-contianer">
-  <ProgressRing id='circle1' 
-   bg='circle_bg1'    
-   draw='circle_draw1'      
-   bind:runEvent="_runEvent" >
-    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
-    <view class="circle_info" bindtap="changeTime">
-       <view class="circle_dot"></view>  
-      <text class='circle_txt'> {{txt}}  </text>
-    </view>
-  </ProgressRing>
+  <view class='progress_box'>
+    <canvas class="progress_bg" canvas-id="canvasProgressbg" />
+    <canvas class="progress_canvas" canvas-id="canvasProgress" />
+  </view>
   <view class="score">
     <view class="score-number">
-      <text class="score-num">90</text>
+      <text class="score-num">{{score}}</text>
       <text class="score-text">分</text>
     </view>
     <view class="score-title">测评分数</view>
   </view>
   <view class="ranking">
     <text>击败</text>
-    <text>70%</text>
+    <text class="percentage">70%</text>
     <text>的初级陈列师</text>
   </view>
   <view class="btn-report">您的历史测评报告></view>

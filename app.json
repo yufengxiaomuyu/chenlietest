@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/circle/circle",
     "pages/score/score",
+    "pages/circle/circle",
     "pages/index/index",
     "pages/test/test",
     "pages/result/result"

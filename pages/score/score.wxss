@@ -3,20 +3,67 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: AdobeHeitiStd-Regular;
+}
+.progress_box{
+  position: absolute;
+  top: 162rpx;
+  width: 208px;
+  height: 208px;
+/* 这里的宽高是必须大于等于canvas圆环的直径 否则绘制到盒子外面就看不见了
+一开始设置 width:440rpx; height:440rpx; 发现 在360X640分辨率的设备，下绘制的圆环跑盒子外去了
+小程序使用rpx单位适配 ，但是canvas绘制的是px单位的。所以只能用px单位绘制的圆环在盒子内显示 */
+  /* display: flex;  
+  align-items: center;
+  justify-content: center; */
+}
+.progress_bg{
+  position: absolute;
+  width:208px;
+  height: 208px; 
+}
+.progress_canvas{ 
+  width:208px;
+  height: 208px; 
+  /* transition: stroke-dashoffset 1s linear; */
 }
 .score {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 270rpx;
+}
+.score-number {
+  display: flex;
+  height: 170rpx;
+  line-height: 170rpx;
 }
 .score-num {
-  font-family: AdobeHeitiStd-Regular;
 	font-size: 170rpx;
-  letter-spacing: -4rpx
+  letter-spacing: -8rpx
+}
+.score-text {
+  /* display: inline-block; */
+  /* margin-bottom: 140rpx; */
+  margin-left: 10rpx;
+  font-size: 80rpx;
+}
+.score-title {
+  font-family: SourceHanSansCN-Normal;
+  font-size: 40rpx;
+  color: #000000;
 }
 .ranking {
   display: flex;
   justify-content: center;
+  margin-top: 146rpx;
+  font-family: SourceHanSansCN-Normal;
+  font-size: 42rpx;
+  color: #000000;
+	opacity: 0.7;
+}
+.percentage {
+  margin: 0 8rpx;
 }
 .btn-report {
   margin-top: 260rpx;

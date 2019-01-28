@@ -1,6 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {
-    "ProgressRing": "/components/ProgressRing/ProgressRing"
-  }
+  "component": true
 }
