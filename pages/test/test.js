@@ -1,5 +1,4 @@
 // pages/test/test.js
-let localData = require("../../data/questions-data.js");
 let app = getApp();
 let utils = require('../../utils/utils.js');
 
