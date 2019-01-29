@@ -1,4 +1,6 @@
 // pages/score/score.js
+let app = getApp()
+let utils = require('../../utils/utils.js')
 Page({
 
   /**
@@ -9,9 +11,10 @@ Page({
     countTimer: '', // 设置 定时器 初始为null
     width: 104,
     r: 98,
-    score: 90,
+    score: 0,
   },
   onLoad: function(options) {
+    // console.log(utils.httpGet)
     let circumference = 2 * this.data.r * Math.PI
     let offset = (1 - this.data.score / 100) * circumference
     this.setData({
@@ -20,6 +23,18 @@ Page({
     })
     this.drawProgressbg()
     this.countInterval(offset)
+    this.getData()
+  },
+  getData: function() {
+    console.log(app)
+    let url = app.globalData.rap2Base + '/tour/result/selResultUserId.do'
+    let params = {
+      userId: 'CP004d1ff3c6ee4acab5f55306e6dc57f4'
+    }
+    utils.httpGet(url,this.processData,params)
+  },
+  processData: function(res) {
+    console.log(res)
   },
   drawProgressbg: function() {
     // 使用 wx.createContext 获取绘图上下文 context
@@ -44,6 +59,9 @@ Page({
   countInterval: function(offset) {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
     console.log(offset)
+    if (offset === this.data.circumference) {
+      return
+    }
     let curOffset = this.data.circumference
     let step = (curOffset - offset) * 16 / 1000
     let count = 0 //计数器
