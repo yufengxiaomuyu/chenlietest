@@ -1,0 +1,24 @@
+<!--pages/history/history.wxml-->
+<view class="history-container">
+  <block wx:for="{{questions}}">
+    <view class="question-container">
+      <view class="question-title">
+        <text class="question-index">{{index+1}}.</text>
+        <text class="question-content">{{item.content}} (参考答案:{{item.answer}})</text>
+      </view>
+      <view wx:if="{{item.img}}" class="img-container">
+        <image src="{{item.img}}" />
+      </view>
+      <block wx:for="{{item.optionList}}">
+        <view class="options">
+          <view class="option-head">
+            <image class="right-icon" wx:if="{{item.condition === 1}}" src="{{rightIcon}}" />
+            <image class="wrong-icon" wx:elif="{{item.condition === 2}}" src="{{wrongIcon}}" />
+            <text wx:else>{{optionHead[item.idx]}}</text>
+          </view>
+          <text class="option-content">{{item.content}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

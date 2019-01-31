@@ -12,6 +12,7 @@ Page({
     levelTitle: '',
     userId: app.globalData.userId,
     baseUrl: app.globalData.chenlieBase,
+    baseUrl: app.globalData.rap2Base,
     isSubmit: false,
   },
   onLoad: function(options) {
@@ -37,9 +38,10 @@ Page({
   },
   processData(data) {
     wx.hideNavigationBarLoading()
+    console.log(data)
     this.setData({
-      questions: data,
-      totalQuestions: data.length
+      questions: data.data,
+      totalQuestions: data.data.length
     })
   },
   radioChange(e) {
@@ -104,17 +106,17 @@ Page({
     }
     // console.log(value)
     let answer = JSON.stringify(value)
-    // console.log(answer)
+    console.log(answer)
     let params = {
       levelId: parseInt(this.data.levelId),
       userId: this.data.userId,
       questAnswer: answer
     }
-    utils.httpPost(url, params, function() {})
+    // utils.httpPost(url, params, function() {})
     // console.log('sucess')
     //跳转路由
     wx.redirectTo({
-      url: '../result/result'
+      url: '../score/score'
     })
   },
   onShareAppMessage(res) {

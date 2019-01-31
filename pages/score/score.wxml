@@ -13,8 +13,8 @@
   </view>
   <view class="ranking">
     <text>击败</text>
-    <text class="percentage">70%</text>
+    <text class="percentage">{{rate}}</text>
     <text>的初级陈列师</text>
   </view>
-  <view class="btn-report">您的历史测评报告></view>
+  <view class="btn-report" bindtap="onHistory">您的历史测评报告></view>
 </view>

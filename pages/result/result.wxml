@@ -1,5 +1,5 @@
 <view class="result-contianer">
-  <image class="result-img {{officialAble ? 'shorter' : 'normal'}}" mode='aspectFit' src='/imgs/submit/subscribe.png' />
+  <image class="result-img {{officialAble ? 'shorter' : 'normal'}}" mode='aspectFit' src='/imgs/subscribe.png' />
   <text class="tips-title {{officialAble ? 'shorter' : 'normal'}}">测评提交成功!</text>
   <block wx:if="{{officialAble}}">
     <view class="official-contianer">

@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/score/score",
-    "pages/circle/circle",
+    "pages/history/history",
     "pages/index/index",
     "pages/test/test",
+    "pages/score/score",
+    "pages/circle/circle",
     "pages/result/result"
   ],
   "window": {

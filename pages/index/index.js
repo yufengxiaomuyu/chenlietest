@@ -10,13 +10,14 @@ Page({
     warrant: false,
     userId: '',
     warrant: '',
-    baseUrl: app.globalData.chenlieBase
+    // baseUrl: app.globalData.chenlieBase
+    baseUrl: app.globalData.rap2Base
   },
   onLoad(options) {
     let url = this.data.baseUrl + '/tour/level/list.do'
     utils.httpGet(url, this.processData)
     wx.showNavigationBarLoading()
-    this.onLogin()
+    // this.onLogin()
   },
   //登录
   onLogin() {
@@ -50,7 +51,7 @@ Page({
     //   data[i].name = data[i].name.slice(0,2)
     // }
     this.setData({
-      testLevel: data
+      testLevel: data.data
     })
     // console.log(this.data.testLevel)
   },
@@ -132,8 +133,10 @@ Page({
   onTest() {
     //生成随机题
     wx.showNavigationBarLoading()
-    this.generateRandomQues()
-    
+    // this.generateRandomQues()
+    wx.navigateTo({
+      url: '../test/test?levelId=' + this.data.levelId + '&levelTitle=' + this.data.levelTitle + '&userId=' + this.data.userId,
+    })   
   },
   onShareAppMessage(res) {
     // console.log(res)

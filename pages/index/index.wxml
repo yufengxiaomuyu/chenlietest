@@ -15,15 +15,15 @@
     </view>
   </block>
   <block wx:else>
-    <block wx:if="{{!warrant}}">
+    <!-- <block wx:if="{{!warrant}}">
       <button class="test-button checked" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
         开始测评
       </button>
-    </block>
-    <block wx:else>
+    </block> -->
+    <!-- <block wx:else> -->
       <view class="test-button checked" bindtap="onTest">
         开始测评
       </view>
-    </block>
+    <!-- </block> -->
   </block>
 </view>

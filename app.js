@@ -9,6 +9,6 @@ App({
     userInfo: null,
     apiBase: 'http://47.105.192.141',
     chenlieBase: 'https://ceshi.chenliegonghe.cn',
-    rap2Base: 'https://rap2api.taobao.org/app/mock/121162',
+    rap2Base: 'http://rap2api.taobao.org/app/mock/121162',
   }
 })

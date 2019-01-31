@@ -2,16 +2,16 @@
 let app = getApp()
 let utils = require('../../utils/utils.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    count: 0, // 设置 计数器 初始为0
-    countTimer: '', // 设置 定时器 初始为null
+    count: 0, // 设置 计数器 
+    countTimer: '', // 设置 定时器
     width: 104,
     r: 98,
+    circumference: '',
+    offset: '',
     score: 0,
+    rate: '',
+    reportId: 0,
   },
   onLoad: function(options) {
     // console.log(utils.httpGet)
@@ -22,19 +22,33 @@ Page({
       offset: offset
     })
     this.drawProgressbg()
-    this.countInterval(offset)
     this.getData()
   },
   getData: function() {
-    console.log(app)
+    // console.log(app)
     let url = app.globalData.rap2Base + '/tour/result/selResultUserId.do'
     let params = {
       userId: 'CP004d1ff3c6ee4acab5f55306e6dc57f4'
     }
-    utils.httpGet(url,this.processData,params)
+    utils.httpGet(url, this.processData, params)
   },
   processData: function(res) {
-    console.log(res)
+    // console.log(res)
+    if (res.data[0]) {
+      let score = res.data[0].result.score
+      let rate = res.data[0].result.rate
+      let levelId = res.data[0].result.levelId
+      let reportId = res.data[0].result.id
+      this.setData({
+        score: score,
+        rate: rate + '%',
+        levelId: levelId,
+        reportId: reportId
+      })
+      this.countInterval(score)
+    } else {
+      console.log('数据获取出错了')
+    }
   },
   drawProgressbg: function() {
     // 使用 wx.createContext 获取绘图上下文 context
@@ -56,9 +70,10 @@ Page({
     context.stroke()
     context.draw()
   },
-  countInterval: function(offset) {
+  countInterval: function(score) {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
-    console.log(offset)
+    // console.log(offset)
+    let offset = (1 - score / 100) * this.data.circumference
     if (offset === this.data.circumference) {
       return
     }
@@ -68,10 +83,10 @@ Page({
     let interval //定时器
     interval = setInterval(() => {
       curOffset = curOffset - step
-      console.log(curOffset)
+      // console.log(curOffset)
       this.drawCircle(curOffset)
       count++
-      console.log(count)
+      // console.log(count)
       if (count >= Math.floor(1000 / 16)) {
         curOffset = offset
         console.log(curOffset)
@@ -79,6 +94,12 @@ Page({
         clearInterval(interval);
       }
     }, 16);
+  },
+  onHistory: function() {
+    console.log('onhistory')
+    wx.navigateTo({
+      url: '../history/history?reportId=' + this.data.reportId,
+    })
   },
   onShareAppMessage: function(res) {
     return {
