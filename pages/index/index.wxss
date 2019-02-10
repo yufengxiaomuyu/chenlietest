@@ -12,7 +12,7 @@ page {
   align-items: center;
   padding: 100rpx 80rpx;
   box-sizing: border-box;
-  background-image: url('http://thyrsi.com/t6/661/1548127676x2890174213.jpg');
+  /* background-image: url('http://thyrsi.com/t6/661/1548127676x2890174213.jpg'); */
   /* background-color: pink; */
   background-size: cover;
 }
@@ -21,7 +21,6 @@ page {
   /* color: #000000; */
   letter-spacing: 4rpx;
   /* font-family: SourceHanSansCN-Regular; */
-
 }
 .options {
   width: 100%;

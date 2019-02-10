@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/history/history",
+    "pages/result/result",
     "pages/index/index",
     "pages/test/test",
     "pages/score/score",
     "pages/circle/circle",
-    "pages/result/result"
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",

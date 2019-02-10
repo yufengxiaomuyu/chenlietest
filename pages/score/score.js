@@ -3,6 +3,7 @@ let app = getApp()
 let utils = require('../../utils/utils.js')
 Page({
   data: {
+    baseUrl: app.globalData.mockBase,
     count: 0, // 设置 计数器 
     countTimer: '', // 设置 定时器
     width: 104,
@@ -12,6 +13,7 @@ Page({
     score: 0,
     rate: '',
     reportId: 0,
+    levelContent: ''
   },
   onLoad: function(options) {
     // console.log(utils.httpGet)
@@ -25,25 +27,39 @@ Page({
     this.getData()
   },
   getData: function() {
-    // console.log(app)
-    let url = app.globalData.rap2Base + '/tour/result/selResultUserId.do'
+    let url = this.data.baseUrl + '/tour/result/selResultUserId.do'
     let params = {
       userId: 'CP004d1ff3c6ee4acab5f55306e6dc57f4'
     }
     utils.httpGet(url, this.processData, params)
   },
-  processData: function(res) {
-    // console.log(res)
-    if (res.data[0]) {
-      let score = res.data[0].result.score
-      let rate = res.data[0].result.rate
-      let levelId = res.data[0].result.levelId
-      let reportId = res.data[0].result.id
+  processData: function(data) {
+    // console.log(data)
+    if (data) {
+      let score = data.score
+      let rate = data.rate
+      let levelId = data.levelId
+      let reportId = data.id
+      let levelContent = ''
+      switch (levelId) {
+        case 1:
+          levelContent = '初级'
+          break
+        case 2:
+          levelContent = '中级'
+          break
+        case 3:
+          levelContent = '高级'
+          break
+        default:
+          levelContent = ''
+      }
       this.setData({
         score: score,
         rate: rate + '%',
         levelId: levelId,
-        reportId: reportId
+        reportId: reportId,
+        levelContent: levelContent
       })
       this.countInterval(score)
     } else {
@@ -89,7 +105,7 @@ Page({
       // console.log(count)
       if (count >= Math.floor(1000 / 16)) {
         curOffset = offset
-        console.log(curOffset)
+        // console.log(curOffset)
         this.drawCircle(curOffset)
         clearInterval(interval);
       }

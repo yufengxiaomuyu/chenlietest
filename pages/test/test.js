@@ -11,8 +11,9 @@ Page({
     levelId: '',
     levelTitle: '',
     userId: app.globalData.userId,
-    baseUrl: app.globalData.chenlieBase,
-    baseUrl: app.globalData.rap2Base,
+    // baseUrl: app.globalData.chenlieBase,
+    // baseUrl: app.globalData.rap2Base,
+    baseUrl: app.globalData.mockBase,
     isSubmit: false,
   },
   onLoad: function(options) {
@@ -31,17 +32,17 @@ Page({
     })
     //获取题目列表
     let url = this.data.baseUrl + '/tour/question/list.do';
+    wx.showNavigationBarLoading()
     utils.httpGet(url, this.processData, {
       userId: userId
     })
-    wx.showNavigationBarLoading()
   },
   processData(data) {
     wx.hideNavigationBarLoading()
     console.log(data)
     this.setData({
-      questions: data.data,
-      totalQuestions: data.data.length
+      questions: data,  
+      totalQuestions: data.length
     })
   },
   radioChange(e) {
@@ -106,7 +107,7 @@ Page({
     }
     // console.log(value)
     let answer = JSON.stringify(value)
-    console.log(answer)
+    // console.log(answer)
     let params = {
       levelId: parseInt(this.data.levelId),
       userId: this.data.userId,

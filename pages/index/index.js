@@ -11,12 +11,13 @@ Page({
     userId: '',
     warrant: '',
     // baseUrl: app.globalData.chenlieBase
-    baseUrl: app.globalData.rap2Base
+    // baseUrl: app.globalData.rap2Base
+    baseUrl: app.globalData.mockBase
   },
   onLoad(options) {
     let url = this.data.baseUrl + '/tour/level/list.do'
+    // wx.showNavigationBarLoading()
     utils.httpGet(url, this.processData)
-    wx.showNavigationBarLoading()
     // this.onLogin()
   },
   //登录
@@ -45,13 +46,13 @@ Page({
     })
   },
   processData(data) {
-    // console.log(data)
     wx.hideNavigationBarLoading()
+    // console.log(data)
     // for (var i in data) {
     //   data[i].name = data[i].name.slice(0,2)
     // }
     this.setData({
-      testLevel: data.data
+      testLevel: data
     })
     // console.log(this.data.testLevel)
   },
