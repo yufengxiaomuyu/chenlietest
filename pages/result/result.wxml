@@ -1,7 +1,8 @@
 <view class="result-contianer">
   <image class="result-img {{officialAble ? 'shorter' : 'normal'}}" mode='aspectFit' src='/imgs/subscribe.png' />
   <text class="tips-title {{officialAble ? 'shorter' : 'normal'}}">测评提交成功!</text>
-  <block wx:if="{{officialAble}}">
+  <button class="btn-submit" bindtap="onSearchResult">查看测评结果 ></button>
+  <!-- <block wx:if="{{officialAble}}">
     <view class="official-contianer">
       <text class="tips-content">点击进入下方公众号，查看测评结果</text>
       <official-account class="official-account"></official-account>
@@ -9,5 +10,5 @@
   </block>
   <block wx:else>
     <button open-type="contact" class="btn-submit contact">回复8关注公众号，查看测评结果 ></button>
-  </block>
+  </block> -->
 </view>

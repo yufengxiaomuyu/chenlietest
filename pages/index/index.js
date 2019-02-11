@@ -10,9 +10,7 @@ Page({
     warrant: false,
     userId: '',
     warrant: '',
-    // baseUrl: app.globalData.chenlieBase
-    // baseUrl: app.globalData.rap2Base
-    baseUrl: app.globalData.mockBase
+    baseUrl: app.globalData.baseUrl
   },
   onLoad(options) {
     let url = this.data.baseUrl + '/tour/level/list.do'

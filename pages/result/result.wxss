@@ -13,6 +13,19 @@
 .result-img.shorter {
   margin-top: 100rpx;
 }
+.btn-submit {
+  box-sizing: border-box;
+  margin-top: 36rpx;
+  padding: 0 2rem;
+  height: 84rpx;
+  font-size: 36rpx;
+  font-family: SourceHanSansCN-Regular;
+  color: #1e1e1e;
+  border-radius: 38rpx;
+  line-height: 84rpx;
+  background-color: #f6d700;
+  overflow: hidden;
+}
 .tips-title {
   margin-top: 170rpx;
   font-size: 42rpx;
@@ -28,7 +41,7 @@
   height: 84rpx;
   width: 644rpx;
   font-size: 36rpx;
-  font-familly: SourceHanSansCN-Regular;
+  font-family: SourceHanSansCN-Regular;
   color: #1e1e1e;
   border-radius: 38rpx;
   line-height: 84rpx;

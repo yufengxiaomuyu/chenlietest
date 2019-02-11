@@ -2,8 +2,8 @@
   "pages": [
     "pages/result/result",
     "pages/index/index",
-    "pages/test/test",
     "pages/score/score",
+    "pages/test/test",
     "pages/circle/circle",
     "pages/history/history"
   ],

@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    baseUrl: app.globalData.rap2Base, 
+    baseUrl: app.globalData.baseUrl, 
     questions: [],
     optionHead: ['A', 'B', 'C', 'D', 'E', 'F'],
     rightIcon: '/imgs/right-icon.png',

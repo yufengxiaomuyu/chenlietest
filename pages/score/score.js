@@ -3,7 +3,7 @@ let app = getApp()
 let utils = require('../../utils/utils.js')
 Page({
   data: {
-    baseUrl: app.globalData.mockBase,
+    baseUrl: app.globalData.baseUrl,
     count: 0, // 设置 计数器 
     countTimer: '', // 设置 定时器
     width: 104,
@@ -13,7 +13,7 @@ Page({
     score: 0,
     rate: '',
     reportId: 0,
-    levelContent: ''
+    levelContent: ['初级','中级','高级']
   },
   onLoad: function(options) {
     // console.log(utils.httpGet)
@@ -40,20 +40,7 @@ Page({
       let rate = data.rate
       let levelId = data.levelId
       let reportId = data.id
-      let levelContent = ''
-      switch (levelId) {
-        case 1:
-          levelContent = '初级'
-          break
-        case 2:
-          levelContent = '中级'
-          break
-        case 3:
-          levelContent = '高级'
-          break
-        default:
-          levelContent = ''
-      }
+      let levelContent = this.data.levelContent[levelId-1]
       this.setData({
         score: score,
         rate: rate + '%',

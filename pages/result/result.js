@@ -7,6 +7,11 @@ Page({
   onLoad: function(){
     this.processScene()
   },
+  onSearchResult() {
+    wx.navigateTo({
+      url: '../score/score',
+    })
+  },
   processScene() {
     var officialAble
     switch (this.data.scene) {

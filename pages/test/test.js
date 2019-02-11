@@ -1,5 +1,4 @@
 // pages/test/test.js
-let localData = require("../../data/questions-data.js");
 let app = getApp();
 let utils = require('../../utils/utils.js');
 
@@ -11,9 +10,7 @@ Page({
     levelId: '',
     levelTitle: '',
     userId: app.globalData.userId,
-    // baseUrl: app.globalData.chenlieBase,
-    // baseUrl: app.globalData.rap2Base,
-    baseUrl: app.globalData.mockBase,
+    baseUrl: app.globalData.baseUrl,
     isSubmit: false,
   },
   onLoad: function(options) {
@@ -39,7 +36,7 @@ Page({
   },
   processData(data) {
     wx.hideNavigationBarLoading()
-    console.log(data)
+    // console.log(data)
     this.setData({
       questions: data,  
       totalQuestions: data.length
@@ -116,8 +113,8 @@ Page({
     // utils.httpPost(url, params, function() {})
     // console.log('sucess')
     //跳转路由
-    wx.redirectTo({
-      url: '../score/score'
+    wx.navigateTo({
+      url: '../result/result'
     })
   },
   onShareAppMessage(res) {
