@@ -14,9 +14,17 @@ Page({
   },
   onLoad(options) {
     let url = this.data.baseUrl + '/tour/level/list.do'
-    // wx.showNavigationBarLoading()
+    console.log('beforehttp')
+    wx.showLoading({
+      title: '加载中',
+    })
     utils.httpGet(url, this.processData)
+    console.log('afterhttp')
     // this.onLogin()
+  },
+  onReady: function() {
+    console.log('onReady')
+    // wx.showNavigationBarLoading()
   },
   //登录
   onLogin() {
@@ -43,25 +51,30 @@ Page({
       }
     })
   },
-  processData(data) {
-    wx.hideNavigationBarLoading()
-    // console.log(data)
+
+  //处理数据
+  processData(res) {
+    console.log('successhttp')
+    // wx.hideNavigationBarLoading()
+    wx.hideLoading()
+    // console.log(res)
     // for (var i in data) {
     //   data[i].name = data[i].name.slice(0,2)
     // }
+    let data = res.data
     this.setData({
       testLevel: data
     })
     // console.log(this.data.testLevel)
   },
-  startTest() {
-    if (this.data.checked === false) {
-      return;
-    }
-    wx.navigateTo({
-      url: '../test/test?levelId=' + this.data.levelId,
-    })
-  },
+  // startTest() {
+  //   if (this.data.checked === false) {
+  //     return;
+  //   }
+  //   wx.navigateTo({
+  //     url: '../test/test?levelId=' + this.data.levelId,
+  //   })
+  // },
   radioChange(e) {
     // console.log(e)
     let levelId = parseInt(e.detail.value)
@@ -80,6 +93,7 @@ Page({
       userId: this.data.userId
     }
     let url = this.data.baseUrl + '/tour/user/getRandomAnswers.do'
+    // wx.showNavigationBarLoading()
     utils.httpGet(url, (res) => {
       // console.log(res)
       wx.hideNavigationBarLoading()
@@ -107,7 +121,7 @@ Page({
           })
           // console.log(this.data.userId)
           // 发送获取UnionID所用数据
-          wx.showNavigationBarLoading()
+          // wx.showNavigationBarLoading()
           utils.httpPost(this.data.baseUrl + '/tour/weiXin/decrypt.do', {
             code: this.data.wxcode2,
             encryptedData: this.data.encryptedData,
@@ -131,7 +145,6 @@ Page({
   },
   onTest() {
     //生成随机题
-    wx.showNavigationBarLoading()
     // this.generateRandomQues()
     wx.navigateTo({
       url: '../test/test?levelId=' + this.data.levelId + '&levelTitle=' + this.data.levelTitle + '&userId=' + this.data.userId,

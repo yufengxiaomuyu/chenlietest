@@ -31,11 +31,18 @@ Page({
     let params = {
       userId: 'CP004d1ff3c6ee4acab5f55306e6dc57f4'
     }
+    wx.showLoading({
+      title: '加载中',
+    })
     utils.httpGet(url, this.processData, params)
   },
-  processData: function(data) {
+
+  //处理数据
+  processData: function(res) {
+    wx.hideLoading()
     // console.log(data)
-    if (data) {
+    if (res.code === 200) {
+      let data = res.data
       let score = data.score
       let rate = data.rate
       let levelId = data.levelId

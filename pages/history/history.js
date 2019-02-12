@@ -23,32 +23,36 @@ Page({
     let params = {
       id: options.reportId,
     }
+    wx.showLoading({
+      title: '加载中',
+    })
     utils.httpGet(url,this.processData,params)
   },
 
   //处理获取的数据
-  processData(data) {
-    console.log(data)
+  processData(res) {
+    wx.hideLoading()
+    console.log(res)
+    let data = res.data
     let rightAnswer = JSON.parse(data.result.rightAnswer)
     let questAnswer = JSON.parse(data.result.questAnswer)
     // console.log(rightAnswer)
     // console.log(questAnswer)
     var newRightAnswer = this.strToArr(rightAnswer)
     var newQuestAnswer = this.strToArr(questAnswer)
+    // console.log(newRightAnswer)
+    // console.log(newQuestAnswer)
     let questions = data.questions
     for (var i in questions) {
-      // console.log(i)
       let optionList = questions[i].optionList
-      // console.log(optionList)
       let index = questions[i].id
-      // console.log(index)
-      console.log(questions[i].answer)
       questions[i].answer = this.numToLetter(questions[i].answer)
       for (var l in optionList) {
         optionList[l].condition = 0
         optionList[l].idx = l
+        // console.log(newQuestAnswer[index])
         for (var key in newQuestAnswer[index]) {
-          console.log(newQuestAnswer[index][key])
+          // console.log(newQuestAnswer[index][key])
           if ((newRightAnswer[index].indexOf(newQuestAnswer[index][key]) === -1)) {
             optionList[(newQuestAnswer[index][key] - 1)].condition = 2
           } else {
@@ -56,8 +60,8 @@ Page({
           }
         }
       }
-      console.log(questions)
     }
+    console.log(questions)
     this.setData({
       questions: questions,
     })

@@ -10,7 +10,7 @@
         <image src="{{item.img}}" />
       </view>
       <block wx:for="{{item.optionList}}">
-        <view class="options">
+        <view class="option">
           <view class="option-head">
             <image class="right-icon" wx:if="{{item.condition === 1}}" src="{{rightIcon}}" />
             <image class="wrong-icon" wx:elif="{{item.condition === 2}}" src="{{wrongIcon}}" />

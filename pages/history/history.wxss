@@ -5,7 +5,7 @@
   padding: 0 40rpx 40rpx 40rpx;
   font-size: 16px;
 }
-.question {
+.question-container {
   margin-top: 64rpx;
   display: flex;
   flex-direction: column;
@@ -23,14 +23,15 @@
 .question-content {
   /*flex: 1;*/
 }
-.question-img {
+.img-container {
+  align-self: center;
   width: 600rpx;
   height: 400rpx;
   margin-top: 20rpx;
   padding: 1px;
   border: 1px solid #ffd900;
 }
-.question-img img {
+.img-container image {
   width: 600rpx;
   height: 400rpx;
 }
@@ -39,19 +40,18 @@
   margin-top: 40rpx;
 }
 .option-head {
-  margin-right: 26rpx;
+  margin-right: 50rpx;
 }
 .right-icon {
-  margin-top: 6rpx;
-  width: 50rpx;
-  height: 35rpx;
+  margin-right: -28rpx;
+  width: 48rpx;
+  height: 48rpx;
 }
 .wrong-icon {
-  margin-top: 6rpx;
-  margin-right: 2rpx;
+  margin-right: -28rpx;
   width: 48rpx;
-  height: 37rpx;
+  height: 48rpx;
 }
 .option-content {
-  margin-left: 18rpx;
+  /* margin-left: 18rpx; */
 }

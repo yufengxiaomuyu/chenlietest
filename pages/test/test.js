@@ -24,19 +24,29 @@ Page({
       userId: userId,
     })
     console.log()
-    wx.setNavigationBarTitle({
-      title: levelTitle
-    })
+    
     //获取题目列表
     let url = this.data.baseUrl + '/tour/question/list.do';
-    wx.showNavigationBarLoading()
+    wx.showLoading({
+      title: '加载中',
+    })
     utils.httpGet(url, this.processData, {
       userId: userId
     })
   },
-  processData(data) {
-    wx.hideNavigationBarLoading()
+
+  //设置导航栏标题
+  onReady: function() {
+    wx.setNavigationBarTitle({
+      title: this.data.levelTitle
+    })
+  },
+
+  //处理数据
+  processData(res) {
+    wx.hideLoading()
     // console.log(data)
+    let data = res.data
     this.setData({
       questions: data,  
       totalQuestions: data.length
@@ -113,7 +123,7 @@ Page({
     // utils.httpPost(url, params, function() {})
     // console.log('sucess')
     //跳转路由
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../result/result'
     })
   },
